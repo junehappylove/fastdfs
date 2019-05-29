@@ -34,3 +34,4 @@ dependency-reduced-pom.xml
 /target/
 /.settings/
 /doc/
+pom.xml
