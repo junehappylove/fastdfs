@@ -28,11 +28,13 @@ import com.june.fastdfs.socket.FdfsSocket;
 import com.june.fastdfs.socket.FdfsSocketService;
 
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author junehappylove
  *
  */
+@Slf4j
 public class TrackerClientService implements ITrackerClientService {
 
 	private static final String DEFAULT_CHARSET_NAME = "ISO8859-1";
@@ -50,7 +52,7 @@ public class TrackerClientService implements ITrackerClientService {
 	private int availableCount;
 
 	public void init() {
-		charset = Charset.forName(charsetName);
+		charset = Charset.forName(charsetName);// TODO 测试charsetName从外部注入获取的值是否仍然是 ISO8859-1
 
 		String[] parts;
 
@@ -80,7 +82,7 @@ public class TrackerClientService implements ITrackerClientService {
 	/**
 	 * 一个ip取不到就取下一个ip的连接，直到所有的ip都取过一遍还没取到报异常
 	 * 
-	 * @return
+	 * @return FdfsSocket
 	 */
 	private FdfsSocket getTrackerSocket() {
 		InetSocketAddress trackerAddresse;
@@ -102,7 +104,7 @@ public class TrackerClientService implements ITrackerClientService {
 				holder.setState(false);
 				holder.lastUnavailableTime = System.currentTimeMillis();
 			} catch (Exception ignore) {
-
+				log.error("ERROR", ignore);
 			}
 			if (socket != null) {
 				return socket;

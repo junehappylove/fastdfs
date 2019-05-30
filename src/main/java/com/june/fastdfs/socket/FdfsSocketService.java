@@ -72,8 +72,10 @@ public class FdfsSocketService {
 		synchronized (this) {
 			for (FdfsSocketPool pool : poolMapping.values()) {
 				try {
+					if (log.isDebugEnabled()) {
+						log.debug("pool current size :" + pool.getNumActive() + "-" + pool.getNumIdle());
+					}
 					pool.close();
-					log.debug("pool current size :" + pool.getNumActive() + "-" + pool.getNumIdle());
 				} catch (Exception e) {
 					log.warn("destory pool error", e);
 				}

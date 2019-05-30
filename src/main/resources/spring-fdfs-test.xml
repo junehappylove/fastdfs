@@ -22,6 +22,9 @@
 			</bean>
 		</property>
 		<property name="borrowSockectErrorPolicy" ref="borrowSockectErrorCreateNotPooledPolicy" />
+		<!-- 下面两个属性可以不写，使用默认值 -->
+		<property name="connectTimeout" value="${connect_timeout}"></property>
+		<property name="soTimeout" value="${network_timeout}"></property>
 	</bean>
 
 	<bean id="borrowSockectErrorCreateNotPooledPolicy"
@@ -37,5 +40,7 @@
 		init-method="init">
 		<property name="fdfsSocketService" ref="fdfsSocketService" />
 		<property name="trackerServerValues" value="${tracker_server}" />
+		<!-- 编码属性可以不写，使用默认值 ISO8859-1 -->
+		<property name="charsetName" value="${charset}" />
 	</bean>
 </beans>
