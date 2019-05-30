@@ -17,9 +17,12 @@ FastDFS 系统有三个角色：跟踪服务器(Tracker Server)、存储服务�
 - Client:客户端，上传下载数据的服务器 
 
 模块之间的主要关系如下：
+
 ![FDFS的三个模块间关系](https://github.com/junehappylove/img_lib/blob/master/fastdfs/fdfs_relation.jpg "FDFS的三个模块间关系")
+
 下图是实现统一的对外下载访问入口的高可用架构，其中所有的Nginx只做下载用途，上传通过tracker进行上传。 
-![FDFS的高可用架构](https://github.com/junehappylove/img_lib/blob/master/fastdfs/fdfs_high_availability.png "FDFS的高可用架构")
+
+![FDFS的高可用架构](https://github.com/junehappylove/img_lib/blob/master/fastdfs/fdfs_high_availability.jpg "FDFS的高可用架构")
 
 
 # 集群部署
