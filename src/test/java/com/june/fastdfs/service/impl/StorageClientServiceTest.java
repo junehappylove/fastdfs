@@ -23,7 +23,7 @@ import com.june.fastdfs.service.IStorageClientService;
 import com.june.fastdfs.service.ITrackerClientService;
 
 
-@ContextConfiguration("classpath:spring.xml")
+@ContextConfiguration("classpath:spring-fdfs-test.xml")
 public class StorageClientServiceTest extends AbstractJUnit4SpringContextTests {
 
 	@Autowired
