@@ -25,7 +25,7 @@ public interface IStorageClientService {
 	 * @param size
 	 *            大小
 	 * @param ext
-	 *            扩展
+	 *            扩展名/后缀名/文件类型
 	 * @return StorePath对象
 	 */
 	StorePath uploadFile(String groupName, InputStream ins, long size, String ext);
@@ -40,7 +40,7 @@ public interface IStorageClientService {
 	 * @param size
 	 *            大小
 	 * @param ext
-	 *            扩展
+	 *            扩展名/后缀名/文件类型
 	 * @return StorePath对象
 	 */
 	StorePath uploadAppenderFile(String groupName, InputStream ins, long size, String ext);
@@ -59,7 +59,7 @@ public interface IStorageClientService {
 	 * @param prefixName
 	 *            前缀
 	 * @param ext
-	 *            扩展
+	 *            扩展名/后缀名/文件类型
 	 * @return StorePath对象
 	 */
 	StorePath uploadSlaveFile(String groupName, String masterFilename, InputStream ins, long size, String prefixName,
